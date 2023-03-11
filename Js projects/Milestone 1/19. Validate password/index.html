@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Password</title>
+</head>
+<body>
+    <form id="form">
+        <h1>Login Page</h1>
+        <input type="text" id="email" placeholder="Enter your email">
+        <input type="password" id="password" placeholder="Enter your password">
+        <div id="message"></div>
+        <button id="submit">Submit</button>
+        <button id="reset">Reset</button>
+    </form>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            color: #191825;
+        }
+        body{
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #191825;
+        }
+        h1{
+            font-size: 48px;
+            margin: 0 0 20px;
+        }
+        form{
+            height: 50vh;
+            width: 25vw;
+            color: #191825;
+            background-color: #865DFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 50px;
+        }
+        input{
+            background-color: #FFA3FD;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        #message{
+            background-color: white;
+            border-radius: 10px;
+        }
+        button{
+            background-color: #E384FF;
+            padding: 10px 50px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+        }
+    </style>
+
+    <script>
+        function check(){
+            let emailCheck = document.getElementById("email").value.indexOf("@") != -1;
+            let passwordCheck = document.getElementById("password").value.length >= 8;
+            if(emailCheck && passwordCheck) {
+                document.getElementById("message").innerText = "Valid email and password!";
+                document.getElementById("message").style.color = "green";
+            } else {
+                document.getElementById("message").innerText = "Invalid email or password!";
+                document.getElementById("message").style.color = "red";
+            }
+            document.getElementById("message").style.padding = "5px 10px";
+        }
+
+        function reset(){
+            document.getElementById("email").value="";
+            document.getElementById("password").value="";
+            document.getElementById("message").innerText = "";
+            document.getElementById("message").style.padding = "0";
+        }
+
+        document.getElementById("submit").addEventListener("click", check);        
+        document.getElementById("reset").addEventListener("click", reset);
+        document.getElementById("form").addEventListener("submit", (event) => {event.preventDefault();});
+    </script>
+</body>
+</html>

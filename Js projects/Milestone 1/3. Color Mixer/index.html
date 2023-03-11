@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Mixer</title>
+</head>
+<body>
+    <h1>Color Mixer</h1>
+    <main>
+        <div>
+            <h3>Color 1</h3>
+            <select id="color1">
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+            </select>
+        </div>
+        <div>
+            <h3>Color 2</h3>
+            <select id="color2">
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+            </select>
+        </div>
+    </main>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        main{
+            display: flex;
+            gap: 20px;
+        }
+        input{
+            width: 10vw;
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+        select{
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+        button{
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+    </style>
+
+    <script>
+        function colorChange(){
+            let color1 = document.getElementById("color1").value;
+            let color2 = document.getElementById("color2").value;
+
+            let color;
+            switch(color1){
+                case "blue":
+                    switch(color2){
+                        case "blue":
+                            color = "blue";
+                            break;
+                        case "red":
+                            color = "purple";
+                            break;
+                        case "yellow":
+                            color = "green";
+                            break;
+                    }
+                    break;
+                case "red":
+                    switch(color2){
+                        case "blue":
+                            color = "purple";
+                            break;
+                        case "red":
+                            color = "red";
+                            break;
+                        case "yellow":
+                            color = "orange";
+                            break;
+                    }
+                    break;
+                case "yellow":
+                    switch(color2){
+                        case "blue":
+                            color = "green";
+                            break;
+                        case "red":
+                            color = "orange";
+                            break;
+                        case "yellow":
+                            color = "yellow";
+                            break;
+                    }
+                    break;
+            }
+            document.body.style.backgroundColor = color;
+        }
+        colorChange();
+        document.getElementById("color1").addEventListener("click", colorChange);
+        document.getElementById("color2").addEventListener("click", colorChange);
+    </script>
+</body>
+</html>

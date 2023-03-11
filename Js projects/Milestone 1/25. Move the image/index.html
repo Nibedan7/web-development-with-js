@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move the Image</title>
+</head>
+<body>
+    <img src="./monkey.jpg" id="image">
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            overflow: hidden;
+        }
+        img{
+            position: relative;
+        }
+    </style>
+
+    <script>
+        let dpi = parseInt(prompt("Enter DPI value(how fast to move the image), leave empty for default 5: "));
+        if(isNaN(dpi)) dpi = 5;
+        document.addEventListener("keydown", (event) => {
+            let key = event.key;
+            if(key == "ArrowUp"){
+                if(document.getElementById("image").style.bottom == "") document.getElementById("image").style.bottom = "0";
+                document.getElementById("image").style.bottom = (parseInt(document.getElementById("image").style.bottom.split("px")[0]) + dpi) + "px";
+            } 
+            else if(key == "ArrowDown"){
+                if(document.getElementById("image").style.bottom == "") document.getElementById("image").style.bottom = "0";
+                document.getElementById("image").style.bottom = (parseInt(document.getElementById("image").style.bottom.split("px")[0]) - dpi) + "px";
+            }
+            else if(key == "ArrowLeft"){
+                if(document.getElementById("image").style.right == "") document.getElementById("image").style.right = "0";
+                document.getElementById("image").style.right = (parseInt(document.getElementById("image").style.right.split("px")[0]) + dpi) + "px";
+            }
+            else if(key == "ArrowRight"){
+                if(document.getElementById("image").style.right == "") document.getElementById("image").style.right = "0";
+                document.getElementById("image").style.right = (parseInt(document.getElementById("image").style.right.split("px")[0]) - dpi) + "px";
+            }
+        })
+    </script>
+</body>
+</html>

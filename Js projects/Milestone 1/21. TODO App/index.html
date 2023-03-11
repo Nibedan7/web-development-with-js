@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Enter your TODO">
+    <button id="add">Add Item to TODO List</button>
+    <ul id="list"></ul>
+
+    <script>
+        function add(){
+            let item = document.getElementById("input").value;
+            let ul = document.getElementById("list");
+            let li = document.createElement("li");
+            li.innerText = item;
+            ul.appendChild(li);
+            document.getElementById("input").value = "";
+        }
+        document.getElementById("add").addEventListener("click", add);
+    </script>
+</body>
+</html>

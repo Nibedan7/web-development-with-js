@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Enter your message">
+    <button id="add">Add</button>
+    <p id="message"></p>
+
+    <style>
+        span{
+            background-color: yellow;
+        }
+    </style>
+
+    <script>
+        function add() {
+            document.getElementById("message").innerHTML = "";
+            let message = document.getElementById("input").value + " ";
+            document.getElementById("input").value = "";
+            let word = "";
+            for(let i = 0; i < message.length; i++) {
+                if(message[i] == " "){
+                    if(word.length > 8){
+                        document.getElementById("message").innerHTML += `<span>${word}</span> `;
+                    } else {
+                        document.getElementById("message").innerHTML += word  + " ";
+                    }
+                    word = "";
+                }
+                else {
+                    word += message[i];   
+                }
+            }
+        }
+        document.getElementById("add").addEventListener("click", add)
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+</head>
+<body>
+    <div id="progress-bar"></div>
+
+    <style>
+        *{    
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 1000vh;
+        }
+        div{
+            position: fixed;
+            margin: 2%;
+            height: 20px;
+            background-color: #2196F3;
+        }
+    </style>
+
+    <script>
+        const progressBar = document.getElementById("progress-bar");
+
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+
+        window.addEventListener("scroll", () => {
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            progressBar.style.width = `calc(${progress}% - 4%)`;
+        });
+    </script>
+</body>
+</html>

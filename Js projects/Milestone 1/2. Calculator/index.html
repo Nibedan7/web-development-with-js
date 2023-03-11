@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div>
+        <input type="text" id="num1" placeholder="Enter 1st number">
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subract">Subract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <input type="text" id="num2" placeholder="Enter 2nd number">
+    </div>
+    <button id="calculate">Calculate</button>
+    <h4 id="result"></h4>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        input{
+            width: 10vw;
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+        select{
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+        button{
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+    </style>
+
+    <script>
+        function calculate() {
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+            
+            if(isNaN(num1) || isNaN(num2)) {
+                alert("Invalid inputs");
+                return;
+            };
+
+            let result = 0;
+            switch(document.getElementById('operation').value){
+                case "add":
+                    result = num1 + num2;
+                    break;
+                case "subract":
+                    result = num1 - num2;
+                    break;
+                case "multiply":
+                    result = num1 * num2;
+                    break;
+                case "divide":
+                    result = num1 / num2;
+                    break;
+            }
+            document.getElementById("result").innerText = `Result: ${result}`;
+        }
+
+        let button = document.getElementById("calculate");
+        button.addEventListener('click', calculate)
+    </script>
+</body>
+</html>

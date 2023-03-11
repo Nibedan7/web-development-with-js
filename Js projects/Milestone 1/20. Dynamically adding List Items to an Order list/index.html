@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically Adding List Items to an Ordered List</title>
+</head>
+<body>
+    <button id="add">Click me to reveal more</button>
+    <ol id="ol">
+        
+    </ol>
+
+    <script>
+        let list = ["HTML and Semantics", "Starting with CSS", "Working Template", "Mobile responsive webpages", "Grid and Flex-box in CSS", "Projects using HTML & CSS", "Version Control and Git", "Getting Started with JavaScript", "Advance JavaScript", "Working with DOM", "Making Projects using HTML, CSS and JavaScript", "Understanding Fundamental of Computer Science", "Getting Started with Database", "Understanding the Database", "Starting with NodeJS and Express", "Understanding React and its Fundamentals", "Understanding Hooks and Routers", "Starting and Completing Full Fledge Projects"];
+        let index = 0;
+        function add(){
+            if(index < list.length){
+                let ol = document.getElementById("ol");
+                let item = document.createElement("li");
+                item.innerText = list[index++];
+                ol.appendChild(item);
+            } else {
+                alert("List is finished!");
+            }
+        }
+
+        document.getElementById("add").addEventListener("click", add);
+    </script>
+</body>
+</html>

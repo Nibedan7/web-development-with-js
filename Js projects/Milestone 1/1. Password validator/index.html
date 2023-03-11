@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+</head>
+<body>
+    <div>
+        <h2>Password</h2>
+        <input type="password" placeholder="Enter your password" id="password">
+    </div>
+    <div>
+        <h2>Confirm Password</h2>
+        <input type="password" placeholder="Confirm your password" id="confirmPassword">
+    </div>
+    <button id="confirm">Confirm</button>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+        input{
+            width: 40vw;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+        button{
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+    </style>
+
+    <script>
+        let password = document.getElementById('password');
+        let confirmPassword = document.getElementById('confirmPassword');
+        let confirm = document.getElementById('confirm');
+
+        const logger = () => {
+            if(password.value==""){
+                console.log("Enter your password and confirm it!");
+                alert("Enter your password and confirm it!");
+            } 
+            else if(password.value==confirmPassword.value){
+                console.log("Password Matched. Password Validation Successful!");
+                alert("Password Matched. Password Validation Successful!");
+            } 
+            else {
+                console.log("Password didn't match. Password Validation Unsuccessful!");
+                alert("Password didn't match. Password Validation Unsuccessful!");
+            }
+        }
+        confirm.addEventListener('click', logger);
+    </script>
+</body>
+</html>

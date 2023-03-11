@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text on Button click</title>
+</head>
+<body>
+    <h1 id="heading">The most affordable learning platform</h1>
+    <button id="change">Click to change</button>
+
+    <style>
+        body{
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            color: white;
+            background-color: #1e1e21;
+            padding: 10px 30px;
+            border-radius: 50px;
+        }
+    </style>
+
+    <script>
+        function change() {
+            if(document.getElementById("heading").innerText != "PW Skills"){
+                document.getElementById("heading").innerText = "PW Skills";
+            } else {
+                document.getElementById("heading").innerText = "The most affordable learning platform";            
+            }
+        }
+        document.getElementById("change").addEventListener("click", change);
+    </script>
+</body>
+</html>
